@@ -5,7 +5,7 @@
   },
 
   "/citas": {
-    "target": "http://localhost:8000",
+    "target": "http://localhost:8082",
     "logLevel": "debug"
   }
 
