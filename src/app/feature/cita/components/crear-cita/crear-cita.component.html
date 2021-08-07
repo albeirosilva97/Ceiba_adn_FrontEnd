@@ -1,1 +1,43 @@
-<p>crear-cita works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Reservar cita</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <form [formGroup]="citaForm" (ngSumbit)="guardar(cita)">
+                    <label for="">
+                        Id Persona
+                    </label>
+                    <input validar [(ngModel)]="cita.idPersona" name="idPersona" type="number" class="form-control"
+                        formControlName="idPersona">
+                    <br>
+                    <label for="">
+                        Nombre Reservante
+                    </label>
+                    <input validar [(ngModel)]="cita.nombre" name="nombre" type="text" class="form-control"
+                        formControlName="nombre">
+                    <br>
+                    <label for="">
+                        Tipo de servicio
+                    </label>
+                    <select class="form-control" validar [(ngModel)]="cita.tipoServicio" name="tipoServicio"
+                        formControlName="tipoServicio">
+                        <option value="1">Servicio de salud oral</option>
+                        <option value="2">Servicio médico general</option>
+                        <option value="3">Servicio especializado</option>
+                    </select>
+                    <br>
+                    <label for="">
+                        Fecha cita
+                    </label>
+                    <input validar [(ngModel)]="cita.fechaCita" name="fechaCita" type="datetime-local"
+                        class="form-control" formControlName="fechaCita" placeholder="yyyy-mm-dd hh:mm:ss">
+                    <br>
+
+                    <button (click)="guardar(cita)" class="btn btn-success" type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

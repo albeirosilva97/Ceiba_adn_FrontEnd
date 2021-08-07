@@ -1,8 +1,10 @@
-<nav>
-    <a id="linkCita" routerLink="./" routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }">Cita</a>
-    <a id="linkCrearCita" routerLink="./crear" routerLinkActive="active">Crear cita</a>
-    <a id="linkBorrarCita" routerLink="./eliminar" routerLinkActive="active">Borrar cita</a>
-    <a id="linkListarCita" routerLink="./listar" routerLinkActive="active">listar cita</a>
-  </nav>
-  <router-outlet></router-outlet>
+<mat-card>
+  <mat-form-field appearance="fill">
+    <mat-label>Acciones reserva citas</mat-label>
+    <mat-select>
+      <mat-option value="option1" routerLink="./crear">Reservar cita</mat-option>
+      <mat-option value="option2" routerLink="./listar">listar citas</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-card>
+<router-outlet></router-outlet>

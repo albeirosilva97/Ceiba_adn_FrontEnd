@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServicioDeNotificaciones } from '@core/services/ServicioDeNotificaciones.service';
 import { Observable } from 'rxjs';
 import { Cita } from '../../shared/model/cita';
 import { CitaService } from '../../shared/service/cita.service';
@@ -13,10 +15,32 @@ export class ListarCitaComponent implements OnInit {
   public dataSource: Observable<Cita[]>;
   displayedColumns: string[] = ['id', 'nombre', 'idPersona', 'tipoServicio', 'costoServicio', 'fechaCita', 'accion'];
 
-  constructor(protected citaService: CitaService) { }
+  constructor(protected citaService: CitaService, private routes: Router, private notificacionesService:ServicioDeNotificaciones) { }
 
   ngOnInit(): void {
     this.dataSource = this.citaService.consultar();
   }
 
+  eliminar(cita: Cita) {
+    this.notificacionesService.mostrarAlertaDeConfirmacionEliminar().then((result) => {
+      if (result.isConfirmed) {
+        this.citaService.eliminar(cita).subscribe(data => {
+          console.log(data);
+          this.routes.navigate(["cita"]);
+        });
+        this.notificacionesService.mostrarMensajeDeConfirmacionEliminar('Eliminada');
+      }
+    })
+  }
+  convertirTipoServicio(tipoServicio:number){
+      if(tipoServicio == 1){
+        return 'Servicio de salud oral';
+      }
+      if(tipoServicio == 2){
+        return 'Servicio médico general';
+      }
+      if(tipoServicio == 3){
+        return 'Servicio especializado';
+      }
+  }
 }

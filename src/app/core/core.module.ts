@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'
+import { ServicioDeNotificaciones } from './services/ServicioDeNotificaciones.service';
 
 @NgModule({
   declarations: [NavbarComponent, ToolbarComponent],
@@ -26,7 +27,8 @@ import {MatIconModule} from '@angular/material/icon'
     SecurityGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: ErrorHandler, useClass: ManejadorError }
+    { provide: ErrorHandler, useClass: ManejadorError },
+    ServicioDeNotificaciones
   ]
 })
 export class CoreModule { }
