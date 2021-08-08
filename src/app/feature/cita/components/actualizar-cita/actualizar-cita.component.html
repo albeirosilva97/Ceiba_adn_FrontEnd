@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="body-card">
+        <div class="card">
+            <div class="container">
+                    <div class="form-group">
+                        <form [formGroup]="citaForm" (ngSumbit)="guardar(cita)">
+                            <label for="">
+                                Id cita
+                            </label>
+                            <input value="{{cita.id}}" name="id" type="text" class="form-control" formControlName="id"
+                            [(ngModel)]="cita.id" disabled>
+                            <br>
+                            <label for="">
+                                Id reservante
+                            </label>
+                            <input value="{{cita.idPersona}}" name="idPersona" type="text" class="form-control" formControlName="idPersona"
+                            [(ngModel)]="cita.idPersona" disabled>
+                            <br>
+                            <label for="">
+                                Nombre reservante
+                            </label>
+                            <input value="{{cita.nombre}}" name="nombre" type="text" class="form-control" formControlName="nombre"
+                            [(ngModel)]="cita.nombre" disabled>
+                            <br>
+                            <label for="">
+                                Tipo de servicio
+                            </label>
+                            <select value="{{cita.tipoServicio}}" class="form-control" validar [(ngModel)]="cita.tipoServicio" name="tipoServicio"
+                                formControlName="tipoServicio">
+                                <option value="1">Servicio de salud oral</option>
+                                <option value="2">Servicio médico general</option>
+                                <option value="3">Servicio especializado</option>
+                            </select>
+                            <br>
+                            <label for="">
+                            Costo del servicio
+                            </label>
+                            <input value="{{cita.costoServicio}}" name="costoServicio" type="text" class="form-control" formControlName="costoServicio"
+                            [(ngModel)]="cita.costoServicio" disabled>
+                            <br>
+                            <label for="">
+                                Fecha reserva
+                            </label>
+                            <input value="{{cita.fechaCita}}"  type="datetime" class="form-control" formControlName="fechaCita"
+                            [(ngModel)]="cita.fechaCita" disabled>
+                            <br>
+                            <button (click)="guardar(cita)" class="btn btn-success" type="submit">Guardar</button>
+                        </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

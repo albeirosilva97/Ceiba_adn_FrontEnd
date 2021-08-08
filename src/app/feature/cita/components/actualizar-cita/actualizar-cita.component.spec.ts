@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EliminarCitaComponent } from './eliminar-cita.component';
+import { ActualizarCitaComponent } from './actualizar-cita.component';
 
-describe('EliminarCitaComponent', () => {
-  let component: EliminarCitaComponent;
-  let fixture: ComponentFixture<EliminarCitaComponent>;
+describe('ActualizarCitaComponent', () => {
+  let component: ActualizarCitaComponent;
+  let fixture: ComponentFixture<ActualizarCitaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EliminarCitaComponent ]
+      declarations: [ ActualizarCitaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EliminarCitaComponent);
+    fixture = TestBed.createComponent(ActualizarCitaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

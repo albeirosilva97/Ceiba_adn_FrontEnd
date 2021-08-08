@@ -18,7 +18,7 @@ export class ServicioDeNotificaciones{
        });
      }
 
-     mostrarMensajeDeConfirmacionEliminar(operacion:string): void {
+     mostrarMensajeDeConfirmacion(operacion:string): void {
       Swal.fire(
          operacion,
          'La cita fue '+operacion+' con éxito',

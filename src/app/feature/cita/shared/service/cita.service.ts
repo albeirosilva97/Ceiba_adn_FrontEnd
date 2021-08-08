@@ -24,4 +24,9 @@ export class CitaService {
     return this.http.doDelete<boolean>(`${environment.endpoint}/citas/${cita.id}`,
                                                  this.http.optsName('eliminar cita'));
   }
+
+  public actualizar(cita: Cita): Observable<any> {
+    return this.http.doPut<Cita>(`${environment.endpoint}/citas/${cita.id}`, cita);
+
+  }
 }

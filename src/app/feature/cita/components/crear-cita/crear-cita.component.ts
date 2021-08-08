@@ -30,7 +30,7 @@ export class CrearCitaComponent implements OnInit {
     cita.fechaCita = cita.fechaCita.concat(":00");
     this.citaService.guardar(cita).subscribe(data => {
       console.log(data);
-      this.notificacionesService.mostrarMensajeDeConfirmacionEliminar('Creada');
+      this.notificacionesService.mostrarMensajeDeConfirmacion('Creada');
       this.routes.navigate(['cita/listar']);
     }
     );

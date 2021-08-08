@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActualizarCitaComponent } from './components/actualizar-cita/actualizar-cita.component';
 import { CitaComponent } from './components/cita/cita.component';
 import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
-import { EliminarCitaComponent } from './components/eliminar-cita/eliminar-cita.component';
 import { ListarCitaComponent } from './components/listar-cita/listar-cita.component';
 
 
@@ -20,8 +20,8 @@ const routes: Routes = [
         component: ListarCitaComponent
       },
       {
-        path: 'eliminar',
-        component: EliminarCitaComponent
+        path: 'editar',
+        component: ActualizarCitaComponent
       }
     ]
   }

@@ -19,6 +19,9 @@
       ],
       "@shared/*": [
         "src/app/shared/*"
+      ],
+      "@cita/*": [
+        "src/app/feature/cita/*"
       ]
     }
   },

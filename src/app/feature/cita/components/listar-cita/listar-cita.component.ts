@@ -28,9 +28,13 @@ export class ListarCitaComponent implements OnInit {
           console.log(data);
           this.routes.navigate(["cita"]);
         });
-        this.notificacionesService.mostrarMensajeDeConfirmacionEliminar('Eliminada');
+        this.notificacionesService.mostrarMensajeDeConfirmacion('Eliminada');
       }
     })
+  }
+  editar(cita:Cita){
+    localStorage.setItem("key", JSON.stringify(cita));
+    this.routes.navigate(['editar']);
   }
   convertirTipoServicio(tipoServicio:number){
       if(tipoServicio == 1){
