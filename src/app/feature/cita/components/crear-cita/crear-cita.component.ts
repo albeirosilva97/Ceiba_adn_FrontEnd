@@ -18,7 +18,7 @@ const LONGITUD_MAXIMA_NOMBRE_RESERVANTE = 60;
 export class CrearCitaComponent implements OnInit {
 
   citaForm: FormGroup;
-  cita: Cita = new Cita();
+  cita: Cita = new Cita(null,null,null,null,null,null);
   constructor(protected citaService: CitaService, private routes: Router, private notificacionesService: ServicioDeNotificaciones) { }
 
   ngOnInit(): void {

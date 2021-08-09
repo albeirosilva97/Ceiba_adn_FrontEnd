@@ -1,4 +1,10 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpService } from '@core/services/http.service';
+import { ServicioDeNotificaciones } from '@core/services/ServicioDeNotificaciones.service';
+import { CitaService } from '../../shared/service/cita.service';
 
 import { ListarCitaComponent } from './listar-cita.component';
 
@@ -8,7 +14,13 @@ describe('ListarCitaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarCitaComponent ]
+      declarations: [ ListarCitaComponent ],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      providers: [CitaService, HttpService, ServicioDeNotificaciones]
     })
     .compileComponents();
   });

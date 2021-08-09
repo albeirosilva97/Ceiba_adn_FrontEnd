@@ -1,4 +1,7 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { CitaComponent } from './cita.component';
 
@@ -8,7 +11,12 @@ describe('CitaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CitaComponent ]
+      declarations: [ CitaComponent ],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule
+      ],
     })
     .compileComponents();
   });
