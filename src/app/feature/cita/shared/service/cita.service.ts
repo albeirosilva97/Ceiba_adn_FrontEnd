@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cita } from '../model/cita';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CitaService {
 
   constructor(protected http: HttpService) { }
@@ -17,12 +15,12 @@ export class CitaService {
 
   public guardar(cita: Cita): Observable<any> {
     return this.http.doPost<Cita, boolean>(`${environment.endpoint}/citas`, cita,
-                                                this.http.optsName('crear/actualizar citas'));
+      this.http.optsName('crear/actualizar citas'));
   }
 
   public eliminar(cita: Cita) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/citas/${cita.id}`,
-                                                 this.http.optsName('eliminar cita'));
+      this.http.optsName('eliminar cita'));
   }
 
   public actualizar(cita: Cita): Observable<any> {

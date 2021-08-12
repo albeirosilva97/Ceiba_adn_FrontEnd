@@ -35,7 +35,7 @@
                             <label for="">
                             Costo del servicio
                             </label>
-                            <input value="{{cita.costoServicio}}" name="costoServicio" type="text" class="form-control" formControlName="costoServicio"
+                            <input value="{{cita.costoServicio | currency}}" name="costoServicio" type="text" class="form-control" formControlName="costoServicio"
                             [(ngModel)]="cita.costoServicio" disabled>
                             <br>
                             <label for="">

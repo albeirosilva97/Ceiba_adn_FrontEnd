@@ -1,5 +1,5 @@
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    width: 30%;
+    width: 60%;
 }
 .btn-success {
     float: right;

@@ -18,7 +18,9 @@ const LONGITUD_MAXIMA_NOMBRE_RESERVANTE = 60;
 export class CrearCitaComponent implements OnInit {
 
   citaForm: FormGroup;
-  cita: Cita = new Cita(null,null,null,null,null,null);
+  cita: Cita = new Cita(null, null, null, null, null, null);
+
+  dateValue = new Date();
   constructor(protected citaService: CitaService, private routes: Router, private notificacionesService: ServicioDeNotificaciones) { }
 
   ngOnInit(): void {
@@ -26,8 +28,8 @@ export class CrearCitaComponent implements OnInit {
   }
 
   guardar(cita: Cita) {
-    cita.fechaCita = cita.fechaCita.replace("T", " ");
-    cita.fechaCita = cita.fechaCita.concat(":00");
+    cita.fechaCita = cita.fechaCita.replace('T', ' ');
+    cita.fechaCita = cita.fechaCita.concat(':00');
     this.citaService.guardar(cita).subscribe(data => {
       console.log(data);
       this.notificacionesService.mostrarMensajeDeConfirmacion('Creada');

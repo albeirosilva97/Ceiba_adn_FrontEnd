@@ -15,7 +15,7 @@ export class ListarCitaComponent implements OnInit {
   public dataSource: Observable<Cita[]>;
   displayedColumns: string[] = ['id', 'nombre', 'idPersona', 'tipoServicio', 'costoServicio', 'fechaCita', 'accion'];
 
-  constructor(protected citaService: CitaService, private routes: Router, private notificacionesService:ServicioDeNotificaciones) { }
+  constructor(protected citaService: CitaService, private routes: Router, private notificacionesService: ServicioDeNotificaciones) { }
 
   ngOnInit(): void {
     this.dataSource = this.citaService.consultar();
@@ -26,25 +26,25 @@ export class ListarCitaComponent implements OnInit {
       if (result.isConfirmed) {
         this.citaService.eliminar(cita).subscribe(data => {
           console.log(data);
-          this.routes.navigate(["cita"]);
+          this.routes.navigate(['cita']);
         });
         this.notificacionesService.mostrarMensajeDeConfirmacion('Eliminada');
       }
-    })
+    });
   }
-  editar(cita:Cita){
-    localStorage.setItem("key", JSON.stringify(cita));
+  editar(cita: Cita) {
+    localStorage.setItem('key', JSON.stringify(cita));
     this.routes.navigate(['editar']);
   }
-  convertirTipoServicio(tipoServicio:number){
-      if(tipoServicio == 1){
-        return 'Servicio de salud oral';
-      }
-      if(tipoServicio == 2){
-        return 'Servicio médico general';
-      }
-      if(tipoServicio == 3){
-        return 'Servicio especializado';
-      }
+  convertirTipoServicio(tipoServicio: number) {
+    if (tipoServicio === 1) {
+      return 'Servicio de salud oral';
+    }
+    if (tipoServicio === 2) {
+      return 'Servicio médico general';
+    }
+    if (tipoServicio === 3) {
+      return 'Servicio especializado';
+    }
   }
 }

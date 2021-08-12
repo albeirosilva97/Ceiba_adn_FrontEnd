@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { ServicioDeNotificaciones } from '@core/services/ServicioDeNotificaciones.service';
+import { of } from 'rxjs';
 import { CitaService } from '../../shared/service/cita.service';
 
 import { CrearCitaComponent } from './crear-cita.component';
@@ -12,6 +13,7 @@ import { CrearCitaComponent } from './crear-cita.component';
 describe('CrearCitaComponent', () => {
   let component: CrearCitaComponent;
   let fixture: ComponentFixture<CrearCitaComponent>;
+  let citaService: CitaService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -31,10 +33,19 @@ describe('CrearCitaComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CrearCitaComponent);
     component = fixture.componentInstance;
+    citaService = TestBed.inject(CitaService);
+    spyOn(citaService, 'guardar').and.returnValue(
+      of(true)
+    );
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('formulario es invalido cuando esta vacio', () => {
+    expect(component.citaForm.valid).toBeFalsy();
+  });
+
 });

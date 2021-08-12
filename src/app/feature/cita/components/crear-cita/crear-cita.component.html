@@ -32,7 +32,8 @@
                         Fecha cita
                     </label>
                     <input validar [(ngModel)]="cita.fechaCita" name="fechaCita" type="datetime-local"
-                        class="form-control" formControlName="fechaCita" placeholder="yyyy-mm-dd hh:mm:ss">
+                        min="{{dateValue | date:'yyyy-MM-ddThh:mm'}}" class="form-control" formControlName="fechaCita"
+                        placeholder="yyyy-mm-dd hh:mm:ss">
                     <br>
 
                     <button (click)="guardar(cita)" class="btn btn-success" type="submit">Guardar</button>

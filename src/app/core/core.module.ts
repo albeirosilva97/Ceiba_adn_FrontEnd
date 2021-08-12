@@ -10,7 +10,7 @@ import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
 import { ServicioDeNotificaciones } from './services/ServicioDeNotificaciones.service';
 
 @NgModule({

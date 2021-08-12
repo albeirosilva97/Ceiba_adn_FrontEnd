@@ -7,16 +7,16 @@ import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 const constatesRespuestaErrorServer = {
   S500: 500,
   S400: 400
-}
+};
 @Injectable()
 export class ManejadorError implements ErrorHandler {
-  constructor(private injector: Injector) {}
-  
+  constructor(private injector: Injector) { }
+
 
   handleError(error: any | Error): void {
     const mensajeError = this.mensajePorDefecto(error);
     this.imprimirErrorConsola(mensajeError);
-    switch(error.status){
+    switch (error.status) {
       case (constatesRespuestaErrorServer.S400): {
         this.mostrarMensajeError(error.error.mensaje);
         break;
@@ -54,9 +54,9 @@ export class ManejadorError implements ErrorHandler {
     return HTTP_ERRORES_CODIGO[httpCode];
   }
 
-  private mostrarMensajeError(mensaje?: string){
+  private mostrarMensajeError(mensaje?: string) {
     const servicioNotificaciones = this.injector.get(ServicioDeNotificaciones);
     servicioNotificaciones.mostrarMensajeDeError(`${mensaje}`);
-    
+
   }
 }

@@ -34,6 +34,6 @@ describe('workspace-project Producto', () => {
         navBar.clickBotonProductos();
         producto.clickBotonListarProductos();
 
-        expect(4).toBe(producto.contarProductos());
+        expect(0).toBe(producto.contarProductos());
     });
 });
